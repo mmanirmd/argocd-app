@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: cluster-1
+        url: https://api-cluster1-xxxxx.com:6443
+      - cluster: cluster-2
+        url: https://api-cluster2-xxxxx.com:6443
+      - cluster: cluster-3
+        url: https://api-cluster3-xxxxx.com:6443
+  template:
+    metadata:
+      name: '{{cluster}}-guestbook'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/mmanirmd/argocd-app.git
+        targetRevision: HEAD
+        path: dev
+      destination:
+        server: '{{url}}'
+        namespace: guestbook
