@@ -1,0 +1,39 @@
+#argocd cluster add-from-file --file clusters.yaml
+
+- name: my-cluster
+  server: https://my-cluster.example.com
+  kubeconfig: my-cluster-kubeconfig.yaml
+
+- name: my-cluster-2
+  server: https://my-cluster-2.example.com
+  kubeconfig: my-cluster-2-kubeconfig.yaml
+
+
+argocd cluster add my-cluster --server https://my-cluster.example.com --kubeconfig my-cluster-kubeconfig.yaml
+
+
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: example-set
+spec:
+  selector:
+    matchLabels:
+      set: example-set
+  template:
+    metadata:
+      labels:
+        set: example-set
+    spec:
+      source:
+        ...
+      destination:
+        - name: my-cluster
+          server: https://my-cluster.example.com
+          namespace: default
+          cluster: my-cluster
+        - name: my-cluster-2
+          server: https://my-cluster-2.example.com
+          namespace: default
+          cluster: my-cluster-2
+
