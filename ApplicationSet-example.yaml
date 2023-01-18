@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: example-set
+spec:
+  selector:
+    matchLabels:
+      set: example-set
+  template:
+    metadata:
+      labels:
+        set: example-set
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/mmanirmd/argocd-app.git
+        targetRevision: HEAD
+        path: dev
+      destination:
+        - name: my-cluster
+          server: https://my-cluster.example.com
+          namespace: default
+          cluster: my-cluster
+        - name: my-cluster-2
+          server: https://my-cluster-2.example.com
+          namespace: default
+          cluster: my-cluster-2
