@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-multi-cluster-app-2
+  labels:
+    app.kubernetes.io/name: my-multi-cluster-app-2
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: my-app
+  source:
+    path: manifests/
+    repoURL: https://github.com/myorg/my-multi-cluster-app-2.git
+    chart: charts/my-chart
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  clusters:
+  - name: cluster-a
+    namespace: my-app
+    server: https://kubernetes.cluster-a.com
+  - name: cluster-b
+    namespace: my-app
+    server: https://kubernetes.cluster-b.com
