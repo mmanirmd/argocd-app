@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     path: argocd/my-apps/app-1
-    repoURL: https://gitlab.com/ayush-sharma/example-assets.git
+    repoURL: https://github.com/mmanirmd/argocd-app.git
     targetRevision: HEAD
   syncPolicy:
     automated:
