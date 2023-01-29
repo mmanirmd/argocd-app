@@ -7,10 +7,14 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: argocd
+    namespace: my-app
     server: https://kubernetes.default.svc
   project: default
   source:
     path: argocd/my-apps/app-1
     repoURL: https://gitlab.com/ayush-sharma/example-assets.git
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
