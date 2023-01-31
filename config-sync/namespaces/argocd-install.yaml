@@ -916,24 +916,6 @@ items:
                 apiVersion: v1
                 fieldPath: metadata.namespace
               path: namespace
-  status:
-    conditions:
-    - lastProbeTime: null
-      lastTransitionTime: "2023-01-31T21:44:35Z"
-      status: "True"
-      type: Initialized
-    - lastProbeTime: null
-      lastTransitionTime: "2023-01-31T21:44:44Z"
-      status: "True"
-      type: Ready
-    - lastProbeTime: null
-      lastTransitionTime: "2023-01-31T21:44:44Z"
-      status: "True"
-      type: ContainersReady
-    - lastProbeTime: null
-      lastTransitionTime: "2023-01-31T21:44:35Z"
-      status: "True"
-      type: PodScheduled
     containerStatuses:
     - containerID: containerd://d0925f4e6ab3e30312b81d07cff2fbcae4313870eb4a46f41749b91517e602c4
       image: docker.io/library/redis:7.0.7-alpine
