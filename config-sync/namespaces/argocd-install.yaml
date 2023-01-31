@@ -1236,24 +1236,6 @@ items:
       name: var-files
     - emptyDir: {}
       name: plugins
-  status:
-    conditions:
-    - lastProbeTime: null
-      lastTransitionTime: "2023-01-31T21:44:45Z"
-      status: "True"
-      type: Initialized
-    - lastProbeTime: null
-      lastTransitionTime: "2023-01-31T21:44:56Z"
-      status: "True"
-      type: Ready
-    - lastProbeTime: null
-      lastTransitionTime: "2023-01-31T21:44:56Z"
-      status: "True"
-      type: ContainersReady
-    - lastProbeTime: null
-      lastTransitionTime: "2023-01-31T21:44:35Z"
-      status: "True"
-      type: PodScheduled
     containerStatuses:
     - containerID: containerd://22e58d6d80f97b827207feecca0d4b32cf26067996614a49173cc8d8bdb7de9c
       image: quay.io/argoproj/argocd:v2.5.8
@@ -1644,24 +1626,6 @@ items:
                 apiVersion: v1
                 fieldPath: metadata.namespace
               path: namespace
-  status:
-    conditions:
-    - lastProbeTime: null
-      lastTransitionTime: "2023-01-31T21:44:35Z"
-      status: "True"
-      type: Initialized
-    - lastProbeTime: null
-      lastTransitionTime: "2023-01-31T21:44:46Z"
-      status: "True"
-      type: Ready
-    - lastProbeTime: null
-      lastTransitionTime: "2023-01-31T21:44:46Z"
-      status: "True"
-      type: ContainersReady
-    - lastProbeTime: null
-      lastTransitionTime: "2023-01-31T21:44:35Z"
-      status: "True"
-      type: PodScheduled
     containerStatuses:
     - containerID: containerd://524b71486b6186df1ee1cc818530ac15afa707ea81d89fd0c08758c9f149b89f
       image: quay.io/argoproj/argocd:v2.5.8
