@@ -7,9 +7,9 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: team1
+    namespace: my-app
     server: https://kubernetes.default.svc
-  project: default
+  project: my-project
   source:
     path: argocd/my-apps/my-app2
     repoURL: https://github.com/mmanirmd/argocd-app.git
