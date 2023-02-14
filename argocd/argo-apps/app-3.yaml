@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: my-app
     server: https://kubernetes.default.svc
-  project: my-project
+  project: child-project
   source:
     path: argocd/my-apps/my-app3
     repoURL: https://github.com/mmanirmd/argocd-app.git
