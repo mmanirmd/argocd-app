@@ -37,3 +37,13 @@ spec:
           namespace: default
           cluster: my-cluster-2
 
+
+
+sed -i '/- argocd-server/{n;s/^/        - --insecure\n/}' install.yaml
+
+
+sed -i '/name: argocd-dex-server/,/app.kubernetes.io\/name: argocd/ s/name: http/name: tcp/' install.yaml
+
+
+sed -i '/egress:/,/ protocol: TCP/d' install.yaml
+sed -i '/Egress/d' install.yaml
