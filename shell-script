@@ -1,0 +1,61 @@
+#!/bin/bash
+
+function usage {
+    # Check for required configFile argument
+    if [ $# -lt 1 ]; then
+        echo "Error: configFile argument is required."
+        return 1
+    fi
+
+    # Read proxyUsername and proxyPassword from configFile
+    local config_file="$1"
+    if [ -f "$config_file" ]; then
+        source "$config_file"
+        if [ -z "$proxyUsername" ] || [ -z "$proxyPassword" ]; then
+            echo "Error: proxyUsername or proxyPassword not defined in $config_file."
+            return 1
+        fi
+    else
+        echo "Error: $config_file not found."
+        return 1
+    fi
+
+    # Check if downloadYaml flag is set
+    local download_yaml=false
+    if [ "$2" == "--downloadYaml" ]; then
+        download_yaml=true
+    fi
+
+    # Use the values of the arguments in the function logic
+    if [ "$download_yaml" == true ]; then
+        downloadYaml "$config_file"
+    fi
+
+    echo "Proxy Username: $proxyUsername"
+    echo "Proxy Password: $proxyPassword"
+}
+
+function downloadYaml {
+    # Check for required configFile argument
+    if [ $# -lt 1 ]; then
+        echo "Error: configFile argument is required."
+        return 1
+    fi
+
+    # Read proxyUsername and proxyPassword from configFile
+    local config_file="$1"
+    if [ -f "$config_file" ]; then
+        source "$config_file"
+        if [ -z "$proxyUsername" ] || [ -z "$proxyPassword" ]; then
+            echo "Error: proxyUsername or proxyPassword not defined in $config_file."
+            return 1
+        fi
+    else
+        echo "Error: $config_file not found."
+        return 1
+    fi
+
+    # Download YAML file using curl with proxy server, username, and password
+    local url="http://example.com/file.yaml"
+    curl -x "http://proxyserver:port" -U "$proxyUsername:$proxyPassword" -o "file.yaml" "$url"
+}
