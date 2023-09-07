@@ -85,4 +85,4 @@ Incorporating regional and zonal considerations into your Argo CD deployment str
 
 
 
-Anthos Config Management is a part of Google Cloud's Anthos platform, which is designed to help organizations modernize their applications and infrastructure, as well as manage their workloads across multiple environments, including on-premises data centers and multi-cloud environments. Anthos Config Management specifically focuses on managing and enforcing policies for Kubernetes clusters in a multi-cluster, multi-environment setup.
+In Anthos Config Management, a Policy Controller is a component that enforces policies and rules across your Kubernetes clusters and configurations. It is a key part of Anthos Config Management's policy management capabilities, allowing you to ensure that your clusters are compliant with your organization's standards and requirements.
