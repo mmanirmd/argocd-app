@@ -1,61 +1,22 @@
-#!/bin/bash
+Successfully upgraded Anthos GKE clusters in the lab and dev environments to the latest version, ensuring platform stability through the rebuilding of clusters.
+Maintained a robust platform, aligning with the organization's commitment to staying current with technology advancements.
 
-function usage {
-    # Check for required configFile argument
-    if [ $# -lt 1 ]; then
-        echo "Error: configFile argument is required."
-        return 1
-    fi
+Successfully upgraded Anthos GKE using an in-place process, thoroughly documented the outcome. Utilizing this process would help to avoid outages in clusters.
+Minimized downtime and potential disruptions, contributing to enhanced cluster reliability and operational efficiency.
 
-    # Read proxyUsername and proxyPassword from configFile
-    local config_file="$1"
-    if [ -f "$config_file" ]; then
-        source "$config_file"
-        if [ -z "$proxyUsername" ] || [ -z "$proxyPassword" ]; then
-            echo "Error: proxyUsername or proxyPassword not defined in $config_file."
-            return 1
-        fi
-    else
-        echo "Error: $config_file not found."
-        return 1
-    fi
+Improved security in lab and dev clusters by implementing ACM policy constraints.
+Strengthened the overall security posture, mitigating potential vulnerabilities and ensuring a more secure working environment.
 
-    # Check if downloadYaml flag is set
-    local download_yaml=false
-    if [ "$2" == "--downloadYaml" ]; then
-        download_yaml=true
-    fi
+Successfully installed Sigstore policy controller for Binary Authorization in on-prem lab and dev clusters, adding an additional layer of security during deployment. Enhanced security protocols during deployment, contributing to a more resilient and protected infrastructure.
 
-    # Use the values of the arguments in the function logic
-    if [ "$download_yaml" == true ]; then
-        downloadYaml "$config_file"
-    fi
+Installed Argo CD in lab clusters, established a continuous deployment pipeline, and demonstrated efficient application deployment using GitOps methodology.
 
-    echo "Proxy Username: $proxyUsername"
-    echo "Proxy Password: $proxyPassword"
-}
+Worked collaboratively with the Cloud SRE team to provision a GCP production project and build Anthos on-prem production environment.
+Established a robust foundation for the production environment, a crucial step in the MVP initiative for deploying X application to the early adopter community.
 
-function downloadYaml {
-    # Check for required configFile argument
-    if [ $# -lt 1 ]; then
-        echo "Error: configFile argument is required."
-        return 1
-    fi
+Provided continuous support for PCF and RD throughout the year, assisting the development team in maintaining their applications.
+Contributed to ongoing project success, ensuring the stability and reliability of applications.
 
-    # Read proxyUsername and proxyPassword from configFile
-    local config_file="$1"
-    if [ -f "$config_file" ]; then
-        source "$config_file"
-        if [ -z "$proxyUsername" ] || [ -z "$proxyPassword" ]; then
-            echo "Error: proxyUsername or proxyPassword not defined in $config_file."
-            return 1
-        fi
-    else
-        echo "Error: $config_file not found."
-        return 1
-    fi
-
-    # Download YAML file using curl with proxy server, username, and password
-    local url="http://example.com/file.yaml"
-    curl -x "http://proxyserver:port" -U "$proxyUsername:$proxyPassword" -o "file.yaml" "$url"
-}
+Completed Certified Kubernetes Security Specialist certification (CKS), to improve skills and implemention of best practices for securing container-based applications and the GKE platform.
+Completed courses on Udemy and Cloud Guru covering Google Cloud Professional DevOps, GCP Google Professional Cloud Security Engineer, Google Cloud Professional Architect, and HashiCorp Vault.
+It enhanced individual capabilities, staying abreast of industry trends, and aligning personal development with organizational needs.
