@@ -1,15 +1,17 @@
-X has effectively constructed GKE clusters in both the Lab and development environments. 
-As a crucial aspect of platform maintenance, and to ensure a secure and stable environment, X has successfully upgraded GKE clusters to the latest version by systematically rebuilding them throughout the year. 
-X effectively established wildcard domains in F5 GTM/LTM for various zones through collaborative efforts with the XYZ team.
-Through successful collaboration with the Venafi team, X has implemented an automated approval process for platform wildcard certifications. 
-X has consistently played a key role in building production clusters, contributing significantly to the timely delivery of the MVP initiative.
+X has successfully built GKE clusters in both laboratory and development settings.
+As an essential component of platform upkeep, and to guarantee a secure and reliable environment, X has proficiently updated GKE clusters to the most recent version by methodically reconstructing them consistently throughout the year.
+X has proficiently deployed logging and alerting policies within Google Cloud for Anthos on-prem GKE clusters, and has created several monitoring dashboards using Terraform.
+X has successfully established multiple cronjobs for scanning and monitoring cluster health, as well as tracking token and certification expirations, proactively taking corrective actions when necessary throughout the year.
 
-
-X's extensive technical expertise and years of experience played a pivotal role in achieving the objectives in a timely manner.
-Throughout the year, X showcased robust collaborative efforts and analytical skills, effectively overcoming hurdles and challenges to achieve the objectives.
-X consistently stayed informed and up-to-date on the latest technologies by actively participating in virtual training sessions and diligently studying technical documents.
+X has continuously been instrumental in constructing production clusters, playing a significant part in ensuring the prompt delivery of the MVP initiative.
 
 
 
-X consistently made substantial contributions to ensure the achievement of team objectives and provided constructive feedback to team members when necessary.
-Anticipating X will continue to play a crucial role in steering the team towards success and accomplishing its goals in the upcoming year.
+X's strong technical proficiency played a key role in achieving the objectives in a timely manner.
+Throughout the year, X collaborated effectively with the XYZ team and Google support to successfully deploy alerting and monitoring policies.
+X consistently reaches out to team members, either through direct communication or by organizing working sessions, to promptly address any roadblocks hindering the achievement of objectives
+
+
+
+X consistently made significant contributions to ensure the accomplishment of personal objectives while diligently working towards career advancement.
+X will persist in playing a vital role in the team's success and achieving shared goals in the upcoming year.
