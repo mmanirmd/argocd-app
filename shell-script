@@ -1,1 +1,8 @@
-tttt
+module "email_not" {
+  source           = "git::https://github/abc"
+  project_ref      = module.project_ref
+  email_address    = var.project_ref_branch == "lab" ? "lab@gmail.com" :
+                     var.project_ref_branch == "dev" || var.project_ref_branch == "qa" || var.project_ref_branch == "pte" ? "dev@gmail.com" :
+                     var.project_ref_branch == "master" ? "prod@gmail.com"
+}
+
