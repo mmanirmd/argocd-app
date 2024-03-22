@@ -1,8 +1,5 @@
-module "email_not" {
-  source           = "git::https://github/abc"
-  project_ref      = module.project_ref
-  email_address    = var.project_ref_branch == "lab" ? "lab@gmail.com" :
-                     var.project_ref_branch == "dev" || var.project_ref_branch == "qa" || var.project_ref_branch == "pte" ? "dev@gmail.com" :
-                     var.project_ref_branch == "master" ? "prod@gmail.com"
-}
-
+for namespace in $(kubectl get namespace -o jsonpath='{.items[*].metadata.name}'); do 
+    for secret in $(kubectl get secret -n $namespace -o jsonpath='{.items[*].metadata.name}'); do 
+        kubectl get secret $secret -n $namespace -o json | jq -r '.data["tls.crt"]' | base64 --decode; 
+    done; 
+done
