@@ -3,3 +3,7 @@ for namespace in $(kubectl get namespace -o jsonpath='{.items[*].metadata.name}'
         kubectl get secret $secret -n $namespace -o json | jq -r '.data["tls.crt"]' | base64 --decode; 
     done; 
 done
+
+The XYZ cluster has been successfully upgraded to GKE on-prem 1.28.200, running Kubernetes version 1.28. To ensure seamless operations, kindly update your system with the latest version of the gcloud CLI.
+Additionally, please install all workloads to the xyz clusters dev environment and transition to zyz clusters by 2/27. 
+Ahead of the ABC clusters being rebuilt with GKE on-prem version 1.28.200, you will receive a separate notification.
