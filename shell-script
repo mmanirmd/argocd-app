@@ -1,1 +1,2 @@
-I 
+
+Prerequisite: Ensure that the following artifacts are copied to /a/b/temp-sec on the JUMP-HOST from both /apps/anthos/anthos-cluster and the corresponding Admin WS. This step is crucial for the seamless execution of the cluster deletion and creation procedures.
