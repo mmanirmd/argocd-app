@@ -1,2 +1,39 @@
 
-Prerequisite: 
+#!/bin/bash
+
+# Set the email addresses
+TO_EMAIL="engineering@gmail.com"
+CC_EMAIL="engineering@gmail.com"
+
+# Get the current date and date after 7 days
+CURRENT_DATE=$(date -d "today" +"%Y-%m-%d")
+EXPIRY_DATE=$(date -d "7 days" +"%Y-%m-%d")
+
+# Find namespaces starting with "devsbx"
+NAMESPACE_LIST=$(kubectl get namespaces -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' | grep "^devsbx")
+
+for NAMESPACE in $NAMESPACE_LIST; do
+    # Get expiry date from annotations
+    EXPIRY_ANNOTATION=$(kubectl get namespace $NAMESPACE -o jsonpath='{.metadata.annotations.expiry_date}')
+
+    # Check if expiry date is within 7 days
+    if [[ "$EXPIRY_ANNOTATION" == "$EXPIRY_DATE" ]]; then
+        # Get namespace owner's email from labels
+        OWNER_EMAIL=$(kubectl get namespace $NAMESPACE -o jsonpath='{.metadata.labels.owner_email}')
+
+        # Compose email message
+        SUBJECT="Namespace Expiry Notification: $NAMESPACE will expire in 7 days"
+        BODY="Hello,
+
+This is a notification that your namespace '$NAMESPACE' will expire on $EXPIRY_DATE.
+
+Please take necessary actions to renew the namespace if needed.
+
+Regards,
+Kubernetes Team"
+
+        # Send email
+        echo "$BODY" | mail -s "$SUBJECT" -c "$CC_EMAIL" "$OWNER_EMAIL"
+        echo "Notification email sent to $OWNER_EMAIL for namespace $NAMESPACE"
+    fi
+done
