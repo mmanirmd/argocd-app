@@ -6,3 +6,13 @@ OWNER_EMAIL=$(grep '^OWNER_EMAIL:' /tmp/log.txt | awk -F ':' '{print $2}')
 
 # Send email using mail command
 echo "$BODY" | mail -s "$SUBJECT" "$OWNER_EMAIL" -c xyz@gmail.com
+
+
+
+# Extract subject, message, and recipient email from log.txt
+SUBJECT=$(grep '^SUBJECT:' /tmp/log.txt | awk -F ':' '{print $2}')
+MESSAGE=$(awk '/^MESSAGE:/ {p=1; next} p' /tmp/log.txt)
+OWNER_EMAIL=$(grep '^OWNER_EMAIL:' /tmp/log.txt | awk -F ':' '{print $2}')
+
+# Send email using mail command
+echo "$MESSAGE" | mail -s "$SUBJECT" "$OWNER_EMAIL" -c xyz@gmail.com
