@@ -1,18 +1,1 @@
-
-# Extract subject, body, and recipient email from log.txt
-SUBJECT=$(grep '^SUBJECT:' /tmp/log.txt | awk -F ':' '{print $2}')
-BODY=$(awk '/^BODY:/ {p=1; next} p; /^END_BODY/ {exit}' /tmp/log.txt)
-OWNER_EMAIL=$(grep '^OWNER_EMAIL:' /tmp/log.txt | awk -F ':' '{print $2}')
-
-# Send email using mail command
-echo "$BODY" | mail -s "$SUBJECT" "$OWNER_EMAIL" -c xyz@gmail.com
-
-
-
-# Extract subject, message, and recipient email from log.txt
-SUBJECT=$(grep '^SUBJECT:' /tmp/log.txt | awk -F ':' '{print $2}')
-MESSAGE=$(awk '/^MESSAGE:/ {p=1; next} p' /tmp/log.txt)
-OWNER_EMAIL=$(grep '^OWNER_EMAIL:' /tmp/log.txt | awk -F ':' '{print $2}')
-
-# Send email using mail command
-echo "$MESSAGE" | mail -s "$SUBJECT" "$OWNER_EMAIL" -c xyz@gmail.com
+Proactively established consistent communication channels with team members and cross-functional teams to ensure alignment and smooth workflow. Organized and led collaborative working sessions whenever necessary to address challenges, remove blockers, and find effective solutions. Emphasized timely resolution to maintain project momentum and prevent delays.
